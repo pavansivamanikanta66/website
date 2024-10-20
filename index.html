@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalamkari Catalog</title>
+  <style>
+    /* Reset and General Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+    }
+
+    header {
+      background-color: #6A4C93;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo h1 {
+      margin-left: 20px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .banner {
+      background-image: url('kalamkari-banner.jpg');
+      background-size: cover;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .banner-text h2 {
+      font-size: 3em;
+    }
+
+    .banner-text p {
+      font-size: 1.2em;
+    }
+
+    .catalog {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .catalog h2 {
+      margin-bottom: 20px;
+      color: #6A4C93;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      margin: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+    }
+
+    .product h3 {
+      padding: 10px;
+      background-color: #6A4C93;
+      color: #fff;
+      margin: 0;
+    }
+
+    .product p {
+      padding: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #6A4C93;
+      color: #fff;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <h1>Kalamkari Creations</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Catalog</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <div class="banner-text">
+      <h2>Explore Exquisite Kalamkari Art</h2>
+      <p>Discover the heritage and elegance of handcrafted Kalamkari designs.</p>
+    </div>
+  </section>
+
+  <section id="catalog" class="catalog">
+    <h2>Our Kalamkari Collection</h2>
+    <div class="product-container">
+      <!-- Products will be dynamically added here -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Kalamkari Creations. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: "Handcrafted Kalamkari Saree",
+        image: "kalamkari-saree.jpg",
+        description: "Elegant Kalamkari saree with hand-painted designs."
+      },
+      {
+        name: "Kalamkari Wall Hanging",
+        image: "kalamkari-wall-hanging.jpg",
+        description: "Beautiful hand-painted wall hanging depicting traditional stories."
+      },
+      {
+        name: "Kalamkari Dupatta",
+        image: "kalamkari-dupatta.jpg",
+        description: "Traditional dupatta with intricate Kalamkari art."
+      }
+    ];
+
+    function loadProducts() {
+      const productContainer = document.querySelector('.product-container');
+      
+      products.forEach(product => {
+        const productCard = `
+          <div class="product">
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+          </div>
+        `;
+        productContainer.innerHTML += productCard;
+      });
+    }
+
+    window.onload = () => {
+      loadProducts();
+    };
+  </script>
+
+</body>
+</html>
